@@ -7,6 +7,10 @@ function setAlarm() {
 
   timeLeft = Number(input.value);
 
+  const mm = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+  const ss = String(timeLeft % 60).padStart(2, "0");
+  title.textContent = `Time Remaining: ${mm}:${ss}`;
+
   if (timerId) {
     clearInterval(timerId);
   }
@@ -14,12 +18,8 @@ function setAlarm() {
   timerId = setInterval(() => {
     timeLeft--;
 
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-
-    const mm = String(minutes).padStart(2, "0");
-    const ss = String(seconds).padStart(2, "0");
-
+    const mm = String(Math.floor(timeLeft / 60)).padStart(2, "0");
+    const ss = String(timeLeft % 60).padStart(2, "0");
     title.textContent = `Time Remaining: ${mm}:${ss}`;
 
     if (timeLeft <= 0) {
