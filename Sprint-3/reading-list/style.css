@@ -13,14 +13,12 @@ html,body {
 
 #reading-list {
   list-style-position:outside;
-  padding:10px 30px;
 }
 
 #reading-list li{
-  margin:20px 0;
-  padding:15px;
-  border:0.1em solid black;
   background-color:green;
+  padding:0;
+  margin:20px
 }
 
 #reading-list li:first-child {
@@ -28,6 +26,6 @@ html,body {
 }
 
 #reading-list img{
+  display:block;
   width:200px;
-  margin-right:20px;
 }
