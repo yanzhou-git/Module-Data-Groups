@@ -11,7 +11,10 @@ function updateQuote() {
   quoteEl.innerText = randomQuote.quote;
   authorEl.innerText = randomQuote.author;
 }
-updateQuote();
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateQuote();
+});
 
 button.addEventListener("click", updateQuote);
 
