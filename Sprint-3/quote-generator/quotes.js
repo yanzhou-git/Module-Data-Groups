@@ -1,3 +1,23 @@
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+const button = document.getElementById("new-quote");
+
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function updateQuote() {
+  const randomQuote = pickFromArray(quotes);
+  quoteEl.innerText = randomQuote.quote;
+  authorEl.innerText = randomQuote.author;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateQuote();
+});
+
+button.addEventListener("click", updateQuote);
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at
@@ -16,9 +36,6 @@
 // pickFromArray(['a','b','c','d'])     // maybe returns 'c'
 
 // You don't need to change this function
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
 
 // A list of quotes you can use in your app.
 // DO NOT modify this array, otherwise the tests may break!
