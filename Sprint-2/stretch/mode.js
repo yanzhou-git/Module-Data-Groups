@@ -12,25 +12,23 @@ function calculateMode(list) {
   // track frequency of each value
   let freqs = new Map();
 
-  for (let num of list) {
-    if (typeof num !== "number") {
-      continue;
+  for (const num of list) {
+    if (typeof num === "number") {
+      freqs.set(num, (freqs.get(num) || 0) + 1);
     }
-
-    freqs.set(num, (freqs.get(num) || 0) + 1);
   }
 
   // Find the value with the highest frequency
   let maxFreq = 0;
-  let mode;
-  for (let [num, freq] of freqs) {
+  let mode = NaN;
+  for (const [num, freq] of freqs) {
     if (freq > maxFreq) {
       mode = num;
       maxFreq = freq;
     }
   }
 
-  return maxFreq === 0 ? NaN : mode;
+  return mode;
 }
 
 module.exports = calculateMode;
